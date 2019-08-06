@@ -1,4 +1,4 @@
-# Momo_the_Battle_Bunny
+# Battle Bunny Momo
 Home of Momo the Battle Bunny, the (privately hosted) Discord bot. 
 
 
