@@ -39,3 +39,5 @@ In the same directory, create these files:
   reddit_secret.txt       Contains the secret key needed for Momo to access Reddit (and also for the code to actually run)
   
 Thanks For Reading <3
+
+PS: BurriTaco and WinterAmoeba are the same person, He just had trouble making up his mind about which name to pick
