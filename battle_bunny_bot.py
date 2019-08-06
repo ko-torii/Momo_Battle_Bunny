@@ -102,7 +102,7 @@ async def on_message(message):
     #commands that are only triggered if the message starts with the prefix stated before
     if message.content.startswith(prefix):
         if "help" in message.content.lower() or "info" in message.content.lower():
-            embed = discord.Embed(title="Battle Bunny Info Card", url="https://github.com/WinterAmoeba514/Momo_the_Battle_Bunny",
+            embed = discord.Embed(title="Battle Bunny Info Card", url="https://github.com/Burri-Taco/Momo_Battle_Bunny",
                                   description="Made by @ShiftyWizard#4823 & @_BurriTaco_#0889 because they'd rather do Python than VB.", color=0xfabcbd)
             embed.set_thumbnail(url="https://i.redd.it/27bp6h2z55011.jpg")
             embed.set_footer(text="(The code is like, really really bad)")
@@ -202,7 +202,7 @@ async def on_message(message):
             await message.channel.send("🥕Unknown command, you can enable/disable some commands by editting the python file I use to work.🥕")
             await message.channel.send("You can check out the available commands by checking out my GitHub Page, which can be found here:")
 
-            embed = discord.Embed(title="Battle Bunny Info Card", url="https://github.com/WinterAmoeba514/Momo_the_Battle_Bunny",
+            embed = discord.Embed(title="Battle Bunny Info Card", url="https://github.com/Burri-Taco/Momo_Battle_Bunny",
                                   description="Made by @ShiftyWizard#4823 & @_BurriTaco_#0889 because they'd rather do Python than VB.", color=0xfabcbd)
             embed.set_thumbnail(url="https://i.redd.it/27bp6h2z55011.jpg")
             embed.set_footer(text="(The code is like, really really bad)")
