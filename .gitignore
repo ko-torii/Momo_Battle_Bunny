@@ -6,6 +6,17 @@ __pycache__/
 # C extensions
 *.so
 
+
+# Secret Stuff OwO
+server_key.txt
+channel_id.txt
+user_id_list.txt
+reddit_secret.txt
+reddit_id.txt
+
+
+
+
 # Distribution / packaging
 .Python
 build/
