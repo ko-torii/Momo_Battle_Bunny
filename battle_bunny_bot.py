@@ -25,7 +25,7 @@ n_universal = False
 #Set to False to prevent bot from responding to basic messages
 res_func = True
 #Set to False if you don't want the other NSFW commands to work in DMs (Not Recommended)
-nsfw_dm = False
+nsfw_dm = True
 
 #redgex scanner thingy for 6 digiTS
 regular = r"(?:\D+?|^)(\d{6})(?=\D+?|$)"
@@ -116,7 +116,7 @@ async def on_message(message):
 
         elif "kizuna" in message.content.lower() or "kzn" in message.content.lower():
                 subred = reddit.subreddit('KizunaA_Irl')
-                neewmeem = subred.hot(limit=100)
+                neewmeem = subred.top(limit=100)
                 lstmeem = list(neewmeem)
                 randsub = random.choice(lstmeem)
                 embed = discord.Embed(title=randsub.title,
@@ -127,7 +127,7 @@ async def on_message(message):
 
         elif "wholesomeanimeme" in message.content.lower():
                 subred = reddit.subreddit('wholesomeanimemes')
-                neewmeem = subred.hot(limit=100)
+                neewmeem = subred.top(limit=100)
                 lstmeem = list(neewmeem)
                 randsub = random.choice(lstmeem)
                 embed = discord.Embed(title=randsub.title,
@@ -138,7 +138,7 @@ async def on_message(message):
 
         elif "animeme" in message.content.lower():
                 subred = reddit.subreddit('animemes')
-                neewmeem = subred.hot(limit=100)
+                neewmeem = subred.top(limit=100)
                 lstmeem = list(neewmeem)
                 randsub = random.choice(lstmeem)
                 embed = discord.Embed(title=randsub.title,
@@ -148,7 +148,7 @@ async def on_message(message):
                 await message.channel.send(embed=embed)
         elif "wholesome" in message.content.lower():
                 subred = reddit.subreddit('wholesome')
-                neewmeem = subred.hot(limit=100)
+                neewmeem = subred.top(limit=100)
                 lstmeem = list(neewmeem)
                 randsub = random.choice(lstmeem)
                 embed = discord.Embed(title=randsub.title,
@@ -159,7 +159,7 @@ async def on_message(message):
 
         elif "meme" in message.content.lower():
                 subred = reddit.subreddit('memes')
-                neewmeem = subred.hot(limit=100)
+                neewmeem = subred.top(limit=100)
                 lstmeem = list(neewmeem)
                 randsub = random.choice(lstmeem)
                 embed = discord.Embed(title=randsub.title,
@@ -169,11 +169,34 @@ async def on_message(message):
                 await message.channel.send(embed=embed)
 
         #nsfw command
+        elif "hentai gif" in message.content.lower():
+            #checks if command was run in NSFW channel
+            if nsfw_dm is True:
+                subred = reddit.subreddit('hentai_GIF')
+                neewmeem = subred.top(limit=100)
+                lstmeem = list(neewmeem)
+                randsub = random.choice(lstmeem)
+                embed = discord.Embed(title=randsub.title,
+                                      description=f'',
+                                      url=randsub.url, colour=0x3498d)
+                embed.set_image(url=randsub.url)
+                await message.channel.send(embed=embed)
+            elif message.channel.is_nsfw():
+                subred = reddit.subreddit('hentai_GIF')
+                neewmeem = subred.top(limit=100)
+                lstmeem = list(neewmeem)
+                randsub = random.choice(lstmeem)
+                embed = discord.Embed(title=randsub.title,
+                                      description=f'',
+                                      url=randsub.url, colour=0x3498d)
+                embed.set_image(url=randsub.url)
+                await message.channel.send(embed=embed)
+
         elif "hentai" in message.content.lower():
             #checks if command was run in NSFW channel
             if nsfw_dm is True:
                 subred = reddit.subreddit('hentai') 
-                neewmeem = subred.hot(limit=100)
+                neewmeem = subred.top(limit=100)
                 lstmeem = list(neewmeem)
                 randsub = random.choice(lstmeem)
                 embed = discord.Embed(title=randsub.title,
@@ -183,7 +206,53 @@ async def on_message(message):
                 await message.channel.send(embed=embed)
             elif message.channel.is_nsfw():
                 subred = reddit.subreddit('hentai')
-                neewmeem = subred.hot(limit=100)
+                neewmeem = subred.top(limit=100)
+                lstmeem = list(neewmeem)
+                randsub = random.choice(lstmeem)
+                embed = discord.Embed(title=randsub.title,
+                                      description=f'',
+                                      url=randsub.url, colour=0x3498d)
+                embed.set_image(url=randsub.url)
+                await message.channel.send(embed=embed)
+
+        elif "rule34 gif" in message.content.lower() or "r34 g" in message.content.lower():
+            #checks if command was run in NSFW channel
+            if nsfw_dm is True:
+                subred = reddit.subreddit('rule34gifs')
+                neewmeem = subred.top(limit=100)
+                lstmeem = list(neewmeem)
+                randsub = random.choice(lstmeem)
+                embed = discord.Embed(title=randsub.title,
+                                      description=f'',
+                                      url=randsub.url, colour=0x3498d)
+                embed.set_image(url=randsub.url)
+                await message.channel.send(embed=embed)
+            elif message.channel.is_nsfw():
+                subred = reddit.subreddit('rule34gifs')
+                neewmeem = subred.top(limit=100)
+                lstmeem = list(neewmeem)
+                randsub = random.choice(lstmeem)
+                embed = discord.Embed(title=randsub.title,
+                                      description=f'',
+                                      url=randsub.url, colour=0x3498d)
+                embed.set_image(url=randsub.url)
+                await message.channel.send(embed=embed)
+
+        elif "rule34" in message.content.lower() or "r34" in message.content.lower():
+            #checks if command was run in NSFW channel
+            if nsfw_dm is True:
+                subred = reddit.subreddit('rule34')
+                neewmeem = subred.top(limit=100)
+                lstmeem = list(neewmeem)
+                randsub = random.choice(lstmeem)
+                embed = discord.Embed(title=randsub.title,
+                                      description=f'',
+                                      url=randsub.url, colour=0x3498d)
+                embed.set_image(url=randsub.url)
+                await message.channel.send(embed=embed)
+            elif message.channel.is_nsfw():
+                subred = reddit.subreddit('rule34')
+                neewmeem = subred.top(limit=100)
                 lstmeem = list(neewmeem)
                 randsub = random.choice(lstmeem)
                 embed = discord.Embed(title=randsub.title,
