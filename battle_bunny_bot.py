@@ -132,7 +132,7 @@ async def on_message(message):
 
         #Sh*tty Clear Chat Functions    
         elif "purge" in message.content.lower() or message.channel.is_nsfw:
-            if (message.channel.type == discord.DMChannel):
+            if message.channel.type != discord.DMChannel:
                 await message.channel.send("Sorry, that command is only available in server channels")
             elif "bot" in message.content.lower():
                 num_self_purge_amount = message.content.split(' ')[2]
