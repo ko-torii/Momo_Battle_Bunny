@@ -24,6 +24,7 @@ os.chdir(dname)
 #prefix for core commands
 prefix = "m!"
 prefix_2 = "momo"
+prefix_h = "h!"
 
 #Set To False To allow bot to work outside of nsfw channels
 n_universal = False
@@ -31,8 +32,7 @@ n_universal = False
 #Set to False to prevent bot from responding to basic messages
 res_func = True
 
-#Set to False if you don't want the other NSFW commands to work in DMs (Not Recommended)
-nsfw_dm = True
+
 
 #redgex scanner for the holy 6 digits
 regular = r"(?:\D+?|^)(\d{6})(?=\D+?|$)"
@@ -82,9 +82,8 @@ async def on_ready():
     print("Watashi ga kita!")
 
     #The displayed game of the bot
-    game = discord.Streaming(name="TED Talk: Bunny Girls, the Next Stage of Human Evolution",
-                             url="https://www.twitch.tv/momothebattlebunny")
-    await client.change_presence(status=discord.Status.online, activity=game)
+    CurrentStatus = "TED Talk: Catgirls, the Next Stage Of Human Evolution"
+    await client.change_presence(status =discord.Status.online, activity = discord.Activity(type=discord.ActivityType.watching, name= CurrentStatus))
 
     #This is the startup message, copy the channel ID for the channel where you want the bootup message to go to.
     #In this case I use a file called channel_id.txt to store the ID of the channel i want the message to be sent to
@@ -116,7 +115,6 @@ async def on_ready():
             
 @client.event   
 async def on_message(message):
-
     #Prevents bot from triggering it's own commands
     if message.author == client.user:
         return
@@ -126,24 +124,9 @@ async def on_message(message):
 
     
     #commands that are only triggered if the message starts with the prefix stated before
-    if message.content.startswith(prefix) or message.content.startswith(prefix_2):
+    if (message.content.startswith(prefix)) or (message.content.startswith(prefix_2)):
         if "help" in message.content.lower() or "info" in message.content.lower():
             await message.channel.send(embed=bot_info())
-
-        #Sh*tty Clear Chat Functions    
-        elif "purge" in message.content.lower() or message.channel.is_nsfw:
-            if message.channel.type != discord.DMChannel:
-                await message.channel.send("Sorry, that command is only available in server channels")
-            elif "bot" in message.content.lower():
-                num_self_purge_amount = message.content.split(' ')[2]
-                to_be_deleted = await message.channel.purge(limit=int(num_self_purge_amount), check=momo_self)
-                await message.channel.send('I Deleted {} message(s) from me'.format(len(to_be_deleted)))
-            elif "msg" in message.content.lower():
-                num_msg_purge_amount = message.content.split(' ')[2]
-                deleted = await message.channel.purge(limit=int(num_msg_purge_amount))
-                await message.channel.send('I Deleted {} message(s)'.format(len(deleted)))
-            else:
-                await message.channel.send("What? That's not how you do it. \n ```m!purge msg/bot <number> \n``` is the correct usage")
 
         #Subreddit image poster bit
         elif "kizuna" in message.content.lower() or "kzn" in message.content.lower():
@@ -164,34 +147,84 @@ async def on_message(message):
         elif "reddit" in message.content.lower():
             sub = message.content.split(' ')[1]
             await message.channel.send(embed=subreddit_image_embedder(sub))
+
         elif "kemonomimi" in message.content.lower():
             await message.channel.send(embed=subreddit_image_embedder('kemonomimi'))
-            
 
-        #nsfw commands
-        #checks if command was run in NSFW channel
-        elif (message.channel.type != discord.DMChannel) or message.channel.is_nsfw:
-            if "hentai_irl" in message.content.lower():
-                await message.channel.send(embed=subreddit_image_embedder('hentai_irl'))
-            elif "hentai_gif" or "animated hentai" in message.content.lower():
-                await message.channel.send(embed=subreddit_image_embedder('hentai_GIF'))
-            elif "rule34 gif" or "r34 g" in message.content.lower():
-                await message.channel.send(embed=subreddit_image_embedder('rule34'))
-            elif "rule34" or "r34" in message.channel.lower():
-                await message.channel.send(embed=subreddit_image_embedder('rule34gifs'))
-            elif "hentai" in message.channel.lower():
-                await message.channel.send(embed=subreddit_image_embedder('hentai'))    
-            elif "kitsunemimi" in message.channel.lower():
-                await message.channel.send(embed=subreddit_image_embedder('kitsunemimi'))
+        elif "command test" in (message.content.lower()):
+            await message.channel.send(embed=subreddit_image_embedder('eyebleach'))
 
+        elif "text" in message.content.lower():
+            await message.channel.send(message.channel.type)
 
-         #If Command was not recognised       
+        #Sh*tty Clear Chat Functions
+        elif "purge" in message.content.lower():
+            if str(message.channel.type) == "private":
+                await message.channel.send("Sorry, that command is only available for use in server channels")  
+            else:
+                num_msg_purge_amount = message.content.split(' ')[1]
+                deleted = await message.channel.purge(limit=int(num_msg_purge_amount))
+                await message.channel.send('I Deleted {} message(s)'.format(len(deleted)))
+
+         #If Command was not recognised
         else:
-            await message.channel.send("Unknown command, you can enable/disable some commands by editting the python file I use to work.")
+            await message.channel.send("Unknown command")
             await message.channel.send("You can check out the available commands by checking out my GitHub Page, which can be found here:")
             await message.channel.send(embed=bot_info())
 
+
+    reject_message = "Sorry, that command can only be used in NSFW channels (or DMs)"
+
+    if (message.content.startswith(prefix_h)):
+        if "hentai_irl" in (message.content.lower()):
+            if (str(message.channel.type) == "private") or (message.channel.is_nsfw()):
+                await message.channel.send(embed=subreddit_image_embedder('hentai_irl'))
+            else:
+                await message.channel.send(reject_message)
+
+        elif "hentai gif" in (message.content.lower()):
+            if (str(message.channel.type) == "private") or (message.channel.is_nsfw()):
+                await message.channel.send(embed=subreddit_image_embedder('hentai_GIF'))
+            else:
+                await message.channel.send(reject_message)
+
+        elif "hentai" in (message.content.lower()):
+            if (str(message.channel.type) == "private") or (message.channel.is_nsfw()):
+                await message.channel.send(embed=subreddit_image_embedder('hentai'))
+            else:
+                await message.channel.send(reject_message)
+
+        elif "rule34 gif" in (message.content.lower()):
+            if (str(message.channel.type) == "private") or (message.channel.is_nsfw()):
+                await message.channel.send(embed=subreddit_image_embedder('rule34gifs'))
+            else:
+                await message.channel.send(reject_message)
+
+        elif "rule34" in (message.content.lower()):
+            if (str(message.channel.type) == "private") or (message.channel.is_nsfw()):
+                await message.channel.send(embed=subreddit_image_embedder('rule34'))
+            else:
+                await message.channel.send(reject_message)
+
+        elif "kitsunemimi" in (message.content.lower()):
+            if (str(message.channel.type) == "private") or (message.channel.is_nsfw()):
+                await message.channel.send(embed=subreddit_image_embedder('kitsunemimi'))
+            else:
+                await message.channel.send(reject_message)
+
+        elif "nsfw test" in (message.content.lower()):
+            print(message.channel.type)
+            print(message.channel.is_nsfw())
+            if (str(message.channel.type) == "private") or (message.channel.is_nsfw()):
+                await message.channel.send("The channel is private or nsfw")
+            else:
+                await message.channel.send("The channel is not private or nsfw")
             
+        #If Command was not recognised
+        else:
+            await message.channel.send("Unknown command")
+            await message.channel.send("You can check out the available commands by checking out my GitHub Page, which can be found here:")
+            await message.channel.send(embed=bot_info())
 
 
     #this bit makes bot respond to good bot and bad bot
@@ -237,6 +270,7 @@ async def on_message(message):
             nlinks.append(nurl.format(num))
             await message.channel.send("\n".join(nlinks))
 
+            
 #Bot Token Goes Here
 #The Bot Token Was put in a text file, you may/may not need to create a new .txt file and put it there.
 with open("server_key.txt", "r") as f:
