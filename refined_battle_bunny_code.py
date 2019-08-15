@@ -50,15 +50,12 @@ async def doujin(ctx, *ids):
     nIDs = ids
     nlinks = []
     nurl = "https://www.nhentai.net/g/{0}"
-    for nID in nIDs:
-        nlinks.append(nurl.format(nID))
-        await ctx.send("\n".join(nlinks))
- 
-
-@bot.command()
-async def test(ctx):
-    '''Test Command'''
-    await ctx.send(ctx.channel.type)
+    if (str(ctx.channel.type) == "private") or (ctx.channel.is_nsfw()):
+        for nID in nIDs:
+            nlinks.append(nurl.format(nID))
+            await ctx.send("\n".join(nlinks))
+    else:
+        await ctx.send("Buddy, you can only use this command in NSFW channels")
 
 @bot.command(name="reddit")
 async def subreddit_spooky(ctx,sub):    
@@ -77,6 +74,11 @@ async def aname(ctx,args):
     await ctx.send(args)
     print(args)
 
+
+@bot.command()
+async def test(ctx):
+    '''States The Channel Type'''
+    await ctx.send(ctx.channel.type)
 
 #Bot's Token
 with open("server_key.txt", "r") as f:
