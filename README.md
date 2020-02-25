@@ -5,7 +5,7 @@ Home of Momo the Battle Bunny, the (privately hosted) Discord bot.
 
 # What She Can Do
 
-**Reddit Scraper**
+## Reddit Scraper
 
 
 ***Usage: m!reddit (subreddit)***
@@ -14,7 +14,7 @@ From a specified subreddit, Momo can embed to the text channel a recently popula
   Note: Momo also has a function where she will not post content from NSFW subreddits unless the text channel the
   command was run on is labeled as an "NSFW" Text Channel in the Channel Settings
   
-**nHentai Link Embedder**
+## nHentai Link Embedder
 
 
 ***Usage: m!doujin (Doujin Code)***
