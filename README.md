@@ -8,7 +8,7 @@ Home of Momo the Battle Bunny, the (privately hosted) Discord bot.
 **Reddit Scraper**
 
 
-Usage: m!reddit <subreddit>
+Usage: m!reddit (subreddit)
   
 From a specified subreddit, Momo can embed to the text channel a recently popular post.
   Note: Momo also has a function where she will not post content from NSFW subreddits unless the text channel the
