@@ -29,7 +29,7 @@ Other noteworthy stuff:
 ```
     
 # Soon To Come
-  Will eventually add a function that will remove fould language by sending Furry Porn as a warning.
+  Will eventually add a function that will remove foul language by sending Furry Porn as a warning.
   Call it an incentive program against foul language if you would.
 
 
