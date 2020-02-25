@@ -3,25 +3,22 @@ Home of Momo the Battle Bunny, the (privately hosted) Discord bot.
 
 
 
-#What She Can Do
+# What She Can Do
+
 **Reddit Scraper**
 Usage: m!reddit <subreddit>
 From a specified subreddit, Momo can embed to the text channel a recently popular post.
   Note: Momo also has a function where she will not post content from NSFW subreddits unless the text channel the
   command was run on is labeled as an "NSFW" Text Channel in the Channel Settings
 
-
-
-
-```
-    
+   
 # Soon To Come
   Will eventually add a function that will remove foul language by sending Furry Porn as a warning.
   Call it an incentive program against foul language if you would.
 
 
 # Stuff You Need To Do To Run The Bot
-```
+
 Because I can't really share my versions of this stuff since I use Momo as well.
 
 In the same directory, create these files:
