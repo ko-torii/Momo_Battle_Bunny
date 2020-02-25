@@ -9,6 +9,7 @@ Home of Momo the Battle Bunny, the (privately hosted) Discord bot.
 
 
 Usage: m!reddit <subreddit>
+  
 From a specified subreddit, Momo can embed to the text channel a recently popular post.
   Note: Momo also has a function where she will not post content from NSFW subreddits unless the text channel the
   command was run on is labeled as an "NSFW" Text Channel in the Channel Settings
