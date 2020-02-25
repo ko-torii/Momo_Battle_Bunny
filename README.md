@@ -3,27 +3,14 @@ Home of Momo the Battle Bunny, the (privately hosted) Discord bot.
 
 
 
-**What Momo Can Do**
-Use these commands with the command prefix (usually m! but can be reconfigured in .py file
-```
-Image Commands :
-  animemes                Posts a random image from current images in Hot for r/animemes
-  memes                   Posts a random image from current images in Hot for r/memes
-  wholesomeanimemes       Posts a random image from current images in Hot for r/wholesomeanimemes
-  wholesome               Posts a random image from current images in Hot for r/wholesome     
+#What She Can Do
+**Reddit Scraper**
+Usage: m!reddit <subreddit>
+From a specified subreddit, Momo can embed to the text channel a recently popular post.
+  Note: Momo also has a function where she will not post content from NSFW subreddits unless the text channel the
+  command was run on is labeled as an "NSFW" Text Channel in the Channel Settings
 
 
-NSFW Functions (stuf that works only in NSFW channels):
-  nHentai URL Function    Detects any 6 digit number and creates a nHentai link for it 
-  hentai                  Posts a random embedded image from r/Hentai
-  hentaigif               Posts a random hentai, but ANIMATED
-  rule34 or r34           Posts a random image from r/Rule34
-  rule34 gif or r34 g     Posts a random rule34 image, but ANIMATED
-  
- (The amount of NSFW commands will eventually outnumber other commands, watch it)
- 
-Other noteworthy stuff:
-  Will probably respond if someone uses the word "bot"
 
 
 ```
