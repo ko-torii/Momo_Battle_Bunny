@@ -25,6 +25,7 @@ Momo will embed a nHentai link with the specified Doujinshi code. It's a neat fe
 
 Feeling Spicy? Momo will generate a random doujin code and embed a link. Kinda like the random button that already exists in the website
 
+Similarly, the above two code will not work unless it is invoked in a "NSFW" text channel. You would not believe how much hentai was sent during testing to make this work. 
    
 # Soon To Come
 
