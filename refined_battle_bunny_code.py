@@ -7,7 +7,8 @@ from discord.ext import commands
 import random
 import asyncio
 import re
-
+from random import seed
+from random import randint
 
 #sets working dirrectory to file location
 abspath = os.path.abspath(__file__)
@@ -92,6 +93,16 @@ class NSFW(commands.Cog):
             for nID in nIDs:
                 nlinks.append(nurl.format(nID))
                 await ctx.send("\n".join(nlinks))
+        else:
+            await ctx.send("Buddy, you can only use this command in NSFW channels")
+    @commands.command()
+    async def randdoujin(self,ctx):
+        '''Generates a random nHentai.net link. Usage: m!randdoujin'''
+        seed(1)
+        randNID = randint(0, 999999)
+        nurl = "https://www.nhentai.net/g/"
+        if (str(ctx.channel.type) == "private") or (ctx.channel.is_nsfw()):
+            await ctx.send(nurl + str(randNID))
         else:
             await ctx.send("Buddy, you can only use this command in NSFW channels")
 
