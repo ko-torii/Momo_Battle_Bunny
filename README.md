@@ -6,7 +6,7 @@ Home of Momo the Battle Bunny, the (privately hosted) Discord bot.
 # What She Can Do
 
 **Reddit Scraper**
-/n 
+
 
 Usage: m!reddit <subreddit>
 From a specified subreddit, Momo can embed to the text channel a recently popular post.
@@ -15,6 +15,7 @@ From a specified subreddit, Momo can embed to the text channel a recently popula
 
    
 # Soon To Come
+
   Will eventually add a function that will remove foul language by sending Furry Porn as a warning.
   Call it an incentive program against foul language if you would.
 
