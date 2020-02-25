@@ -35,10 +35,12 @@ Similarly, the above two code will not work unless it is invoked in a "NSFW" tex
  
  Spotify/Music Functions
  
+Make Momo an AI (in like the very far future. lol)
+ 
 Cafe Integration ( ͡° ͜ʖ ͡°)
 
 # Stuff You Need To Do To Run The Bot
-
+```
 Because I can't really share my versions of this stuff since I use Momo as well.
 
 In the same directory, create these files:
@@ -46,7 +48,7 @@ In the same directory, create these files:
   server_key.txt          Contains the Unique Discord Token that is needed for Momo to run.
   reddit_ID.txt           Contains the Reddit token needed to access Reddit Posts
   reddit_secret.txt       Contains the secret key needed for Momo to access Reddit (and also for the code to actually run)
-  
+  ```
 Thanks For Reading <3
 
 PS: BurriTaco and WinterAmoeba are the same person, He just had trouble making up his mind about which name to pick
