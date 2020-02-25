@@ -29,8 +29,11 @@ Feeling Spicy? Momo will generate a random doujin code and embed a link. Kinda l
 # Soon To Come
 
  Better Code
+ 
  More "Fun" Commands
+ 
  Spotify/Music Functions
+ 
 Cafe Integration ( ͡° ͜ʖ ͡°)
 
 # Stuff You Need To Do To Run The Bot
